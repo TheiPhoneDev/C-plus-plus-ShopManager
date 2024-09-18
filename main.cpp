@@ -9,7 +9,7 @@ const int dimensioneMax=100;
 void caricaVettori(string codice[], string nomi[], string casa[], string classe[], float prezzo[], int n);
 void cercaProdottoCodice(string codice[], string nomi[], string casa[], string classe[], float prezzo[], int n);
 void ordinamentoAlfabetico(string nomi[], int n, string classe[], string vAlpha[]);
-void aggiornaPrezzo(string codice[], float prezzo[], int n, float prezzo1[]);
+void aggiornaPrezzo(string codice[], float prezzo[], float prezzo1[]);
 float media(string classe[], float prezzo[], int n, float prezziClasse[], int &d);
 void fasciaPrezzo(string codice[], string nomi[], string casa[], float prezzo[], string classe[], int n);
 void stampaMassimo(string nomi[], float prezzo[], int n, string classe[], string casa[], string codice[]);
@@ -49,7 +49,7 @@ int main() {
               ordinamentoAlfabetico(NOME,N,CLASSE,Nomi_Alfabetico);
             break;
             case 5:
-              aggiornaPrezzo(CODICE,PREZZO,N,prezziDaAggiornare);
+              aggiornaPrezzo(CODICE,PREZZO,prezziDaAggiornare);
             break;
             case 6:
               m=media(CLASSE,PREZZO,N,prezziClasse,d);
@@ -157,15 +157,23 @@ void ordinamentoAlfabetico(string nomi[], int n, string classe[], string vAlpha[
   
 }
 
-void aggiornaPrezzo(string codice[], float prezzo[], int n, float prezzo1[]) {
-  for(int i=0; i<n; i++) {
+void aggiornaPrezzo(string codice[], float prezzo[], float prezzo1[]) {
+    
+  int nProdotti=0;
+  
+  cout<<"Quanti prodottti vuoi aggiornare ? : ";
+  cin>>nProdotti;
+    
+  for(int i=0; i<nProdotti; i++) {
     cout<<"Inserisci il codice del prodotto da aggiornare e il nuovoi prezzo: ";
     cin>>codice[i]>>prezzo1[i];
   }
 
-  for(int i=0; i<n; i++) {
+  for(int i=0; i<nProdotti; i++) {
     prezzo[i]=prezzo1[i];
   }
+  
+  
 }
 
 
